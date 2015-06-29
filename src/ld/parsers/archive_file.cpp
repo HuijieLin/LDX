@@ -445,7 +445,7 @@ bool File<A>::forEachAtom(ld::File::AtomHandler& handler) const
 			}
 		}
 	}
-	{
+	{// Yonsm：原本此段代码仅 _forceLoadObjC 时启用，现改成无论如何，都强制引用 category，以便排除相关困扰
 		// ObjC2 has no symbols in .o files with categories but not classes, look deeper for those
 		const Entry* const start = (Entry*)&_archiveFileContent[8];
 		const Entry* const end = (Entry*)&_archiveFileContent[_archiveFilelength];
